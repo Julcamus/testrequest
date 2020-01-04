@@ -1,0 +1,431 @@
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #EF430E; 
+  }
+.ressearch_input{
+    width:100% ; 
+    height:45px ; 
+    font-size:19px;
+   
+}
+.une_epreuve{
+    
+    height:190px;
+}
+
+.section_epreuve{
+    width:80% ; 
+    padding-bottom:20px;
+}
+.epreuve_fond{
+    width:100%;
+    height: 80% ;
+    border:1px solid silver ; 
+    background-attachment: initial ; 
+    background-position:center center ;
+    background-size: 70% ; 
+    background-repeat: no-repeat ; 
+    background-color:silver  ;   
+    
+
+}
+.image_de_fond{
+    width:100% ;
+    height:100% ; 
+
+}
+.epreuve_info{
+    background-color:#F0560B ; 
+    display: block ; 
+    width:100% ; 
+    height:20%  ; 
+    
+}
+
+.matiere{
+    color:white;
+    font-weight:600px;
+    font-family:verdana ;
+}
+
+.classe{
+    color:#F0560B ; 
+    float : right ; 
+    border : 1px solid silver ;
+    padding : 3px ; 
+    border-radius : 100%;
+    position:relative; 
+    background-color:white;
+    font-weight:bold
+}
+
+.ligne_une_epreuve{
+    position : relative ; 
+    margin-top : 20px;
+   
+    
+    
+}
+.click_lien{
+    color : silver ; 
+    text-decoration : none ;
+    position:relative;
+    bottom: 2px; 
+    letter-spacing: 2px;
+     
+}
+
+.click_lien:hover {
+    color:white ; 
+}
+
+.une_epreuve{
+    position:relative ; 
+    margin-top: 50 px ; 
+    padding-top: 50 px ;
+
+}
+
+.zone_des_messages_erreure{
+    border:1px solid red ; 
+    border-radius: 5px;
+    background-color:red ;
+    color:white ;
+    font-family: verdana ;
+    
+}
+#help_for_ressearch{
+    border : 1px solid silver ; 
+    border-radius: 10px;
+    display:inline-block ; 
+    position:relative;
+    left:15px ;
+    
+    
+}
+
+.recherche{
+    list-style: none; 
+}
+
+.recherche:hover{
+    background-color:#F0560B ; 
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  #recherche_image {
+
+    width: 7%;
+    height: auto;
+    display: inline;
+    float: left;
+    position: relative;
+    bottom: 10px;
+
+}
+
+#recherche_texte {
+    font-size: 20px;
+    clear: both;
+    display: inline;
+    font-family: verdana;
+    position: relative;
+    bottom: 5px;
+
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+    width: 60%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
+}
+
+#bouttonDeRecherche{
+    padding-left : 20px;
+}
+.sousDiv{
+    border:1px solid silver ; 
+   border-radius:5px; 
+   width:115%;
+    height:140px; 
+    margin-right:20px;
+    position:relative;
+    top:5px;
+    display:none ; 
+
+   
+    
+}
+.sousDiv p {
+    color : #0C2E60 ;
+    font-family:Georgia ; 
+    font-size: 15px ; 
+    font-weight:normal;
+    width:100% ; 
+    overflow-x:auto ; 
+   
+    
+    
+}
+.sousDiv p:hover{
+    background-color : #EF430E ; 
+    color:white ;
+     
+   
+}
+
+.messageCaseRechercheNonRempli{
+  position:relative;
+  border:1px solid silver ; 
+  border-right:10px solid #EF3F0E ;
+  margin-bottom:5px;    
+  animation-name : bouger ; 
+  animation-duration : 5s ; 
+  color:white ;
+}     
+@keyframes bouger {
+  0% {left:90%}
+  100% {left:0%}
+}
+.messageCaseRechercheNonRempli p{
+   font-size: 19px;
+  font-family :  serif  ; 
+  text-align :center ; 
+}
+
+.validationDiv{
+  border:1px solid silver ;
+   width:50%;
+    position:relative;
+    left:25%;
+    top:20px;
+    border-radius:5px;
+    text-align:center ;
+    border-right:5px solid #EF3F0E ;
+}
+.validationDiv span{
+  font-family:Georgia, 'Times New Roman', Times, serif ; 
+  font-size:18px;
+}
+.validationDiv button{
+  height:40px;
+  padding:10px; 
+  margin-bottom:20px;
+  margin-top:10px;
+  font-size:15px;
+}
+
+#footerLogo{
+  position:relative;
+  bottom:15px;
+}
+
+#footerSiteName{
+  color:#777777;
+  font-size:19px;
+  font-weight:bold;
+  position:relative;
+  bottom:30px;
+}
+#headerSiteName{
+  color:#777777;
+  font-size:19px;
+  font-weight:bold;
+  position:relative;
+
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
+    .div {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        top: 50px;
+    }
+
+    .div:first-of-type {
+        /* For increasing performance 
+                       ID/Class should've been used. 
+                       For a small demo 
+                       it's okaish for now */
+        animation: showup 7s infinite;
+    }
+
+    .div:last-of-type {
+        width: 0px;
+        animation: reveal 7s infinite;
+    }
+
+    .div:last-of-type span {
+        margin-left: -355px;
+        color: #EE3C0E;
+        padding-bottom: 2px;
+        font-family: 'Snell Roundhand';
+        font-weight: bold;
+        font-size: 45px;
+        animation: slidein 7s infinite;
+    }
+
+    @keyframes showup {
+        0% {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes slidein {
+        0% {
+            margin-left: -800px;
+        }
+
+        20% {
+            margin-left: -800px;
+        }
+
+        35% {
+            margin-left: 0px;
+        }
+
+        100% {
+            margin-left: 0px;
+        }
+    }
+
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+            width: 0px;
+        }
+
+        20% {
+            opacity: 1;
+            width: 0px;
+        }
+
+        30% {
+            width: 355px;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            width: 1000%;
+        }
+    }
+
+
+    #textMouvantDiv {
+        border-left: 10px solid #EE3C0E;
+    }
+
+    #h1Mouvant {
+        padding-bottom: 2px;
+        font-family: 'Snell Roundhand';
+        font-weight: bold;
+        font-size: 45px;
+    }
+
+@media screen and (max-width: 480px) {
+    .slider {
+        width: 90%;
+        margin: 100px auto;
+    }
+    
+    .navbar-nav{
+      display:none; 
+    }
+  }
+
+
+  @media screen and (max-width: 990px) {
+    .sousDiv {
+        width: 100%;
+        margin-bottom : 20px;
+       
+    }
+    
+    .menuButton{
+      padding-top:2px;
+       margin-top:2px;
+      position:relative;
+      text-align: left;
+      right:30px;
+
+    }
+
+    .navbar-nav{
+      align-content: left ; 
+      color:red;
+    }
+  }

@@ -1,0 +1,80 @@
+.informations{
+    text-align :left ;
+    position  :relative ;
+    font-family :verdana ;
+   top :50px;
+
+}
+.utiles{
+    color : #EF4A0D ;
+    p
+}
+.row{
+    text-align :center ;
+}
+.container_info{
+    
+    width :80% ;  
+    margin :0 auto ; 
+    text-align :center ;
+    margin-top : 100px;
+    border :2px solid #0C2E60 ;
+    border-radius :10px;
+    padding :5px;
+    box-shadow : 2px -7px  #EF4A0D ;
+}
+.info_name{
+    font-weight : bold ;
+    text-style : uppercase ;
+    font-size : 19px;
+    color :#EF4A0D ;
+    text-align : center ;
+}
+.info_value{
+    font-family : serif ;
+    font-size : 17px;
+    font-weight : bold ;
+    
+}
+#confirmation_boutton{
+    text-align : center ;
+    font-size : 19px;
+    margin :0 auto ;
+}
+#boutton_téléchargement_div{
+    text-align :center ;
+    position : relative ;
+    margin-top :80px;
+}
+.ignorer_telechargement{
+    text-align :center ;
+    position : relative ;
+    margin-top :20px;
+    padding-bottom :100px;
+}
+#ignorer_telechargement_text{
+    color :#0C2E60 ;
+    font-size : 19px ;
+    font-weight :bold;
+    font-style :italic ;
+}
+#ignorer_telechargement_text:hover{
+    text-decoration :underline ;
+}
+
+.descriptionTextArea{
+    outline : none ; 
+    border-color : #EF4A0D ;
+    overflow-y:scroll ; 
+    scrollbar-3dlight-color: #EF4A0D ; 
+    scrollbar-arrow-color: #C ; 
+    scrollbar-width: 1px; 
+    scrollbar-base-color:  ##EF4A0D ; 
+  
+}
+
+@media screen and (max-width: 766px) {
+    .descriptionTextArea{
+       width : 80% ;  
+    }
+  }
