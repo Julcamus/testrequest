@@ -2,7 +2,9 @@
 ?>
 <?php // header('content-type: text/html; charset=utf-8'); 
 ?>
-<?php require_once('functions/epreuvesFunctions.php') ?>
+<?php
+require_once('functions/epreuvesFunctions.php') ?>
+
 
 <!doctype html>
 <html lang="fr">
@@ -26,13 +28,10 @@
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="public/css/magnific-popup.css">
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="public/css/slick.css">
-    <!--Link for reasearch slide-->
-    <link rel="stylesheet" type="text/css" href="./public/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="./public/slick/slick-theme.css">
+    
     <!-- style CSS -->
     <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/index.css">
+    <link rel="stylesheet" href="public/css/home.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
@@ -40,6 +39,8 @@
     <!--Link for modal--->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!--Link for reasearch SingIn traitement in Js-->
+    <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="public/css/swiper.min.css">
 
 </head>
 <style>
@@ -50,60 +51,82 @@
     @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
 
 
-.input {
-  position:relative;
-  left: -9999px;
-}
+    .input {
+        position: relative;
+        left: -9999px;
+    }
 
-.label {
-  display: block;
-  position: relative;
-  
-  padding: 15px 30px 15px 62px;
-  border: 3px solid #fff;
-  border-radius: 100px;
-  color: #fff;
-  background-color: #28A745;
-  box-shadow: 0 0 10px #F0500C;
-  white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color .2s, box-shadow .2s;
-  right:40px;
-}
+    .label {
+        display: block;
+        position: relative;
 
-.label::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 10px;
-  width: 32px;
-  border: 3px solid #fff;
-  border-radius: 100px;
-  transition: background-color .2s;
-}
+        padding: 15px 30px 15px 62px;
+        border: 3px solid #fff;
+        border-radius: 100px;
+        color: #fff;
+        background-color: #28A745;
+        box-shadow: 0 0 10px #F0500C;
+        white-space: nowrap;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color .2s, box-shadow .2s;
+        right: 40px;
+    }
 
-.label:first-of-type {
-  transform: translateX(-40px);
-}
+    .label::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+        width: 32px;
+        border: 3px solid #fff;
+        border-radius: 100px;
+        transition: background-color .2s;
+    }
 
-.label:last-of-type {
-  transform: translateX(40px);
-}
+    .label:first-of-type {
+        transform: translateX(-40px);
+    }
 
-.label:hover, .input:focus + .label {
-  box-shadow: 0 0 20px rgba(0, 0, 0, .6);
-}
+    .label:last-of-type {
+        transform: translateX(40px);
+    }
 
-.input:checked + .label {
-  background-color:#F0500C ;
-}
+    .label:hover,
+    .input:focus+.label {
+        box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+    }
 
-.input:checked + .label::before {
-  background-color: white;
-}
+    .input:checked+.label {
+        background-color: #F0500C;
+    }
+
+    .input:checked+.label::before {
+        background-color: white;
+    }
+
+    .sousDiv {
+        display: none;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+
+    .swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 200px;
+      height: 200px;
+      background-color:#fff;
+    }
+
 
 </style>
 
@@ -178,52 +201,77 @@
                         <aside class="single_sidebar_widget search_widget">
                             <form id="formulaireDeRecherche" method="POST" action="public/recherche.php">
                                 <div>
-                                    <!-- Inpuut Niveaux--->
-                                    <div><input id='niveauInput' name="niveaux" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='Niveaux' id='niveau'>
-                                        <div id='sousNiveauInput' class='sousDiv' style='overflow:auto ;'>
+                                    <!--  Niveaux Input--->
+                                    <div><input id='niveauInput' name="niveaux" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='Niveaux'>
+                                        <div id='sousNiveauInput' class='sousDiv ' style='overflow:auto ;display:none'>
                                             <?php
-                                            foreach ($packInfo[0] as $Niveau) {
-                                                echo '<p  class="sousDivElement"  >' . $Niveau . '</p>';
+                                            sort($packInfo[0]);
+                                            foreach ($packInfo[0]  as $Niveau) {
+                                                echo '<p  class="sousDivElement aTraiter"  >' . $Niveau . '</p>';
                                             }
                                             ?>
 
                                         </div>
                                     </div>
-                                    <!-- End Input Niveaux --> 
-                                    
-                                    <!--Input Formation-->
-                                    <input name="matiere" id='matiereInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="text" placeholder="Formation" style="display:none">
-                                    <div id='sousMatiereInput' class='sousDiv aAfficher' style='overflow:auto ;'>
-                                        <?php
-                                        foreach ($packInfo[2] as $Matiere) {
-                                            echo '<p class="sousDivElement"  >' . $Matiere . '</p>';
-                                        }
-                                        ?>
-                                    </div>
-                                    <!-- End Input Formation-->
+                                    <!-- End  Niveaux Input -->
+                                    <!--Formation Input-->
+                                    <div><input id='formationInput' name="formation" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='Formation' style="display:none">
+                                        <div id='sousFormationInput' class='sousDiv' style='overflow:auto ;display:none'>
+                                            <?php
+                                            sort($packInfo[3]);
+                                            foreach ($packInfo[3] as $formation) {
+                                                echo '<p  class="sousDivElement"  >' . $formation . '</p>';
+                                            }
+                                            ?>
 
-                                    <!--  Input Matiere-->
-                                    <input name="matiere" id='matiereInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="text" placeholder="Matière">
-                                    <div id='sousMatiereInput' class='sousDiv aAfficher' style='overflow:auto ;'>
-                                        <?php
-                                        foreach ($packInfo[2] as $Matiere) {
-                                            echo '<p class="sousDivElement"  >' . $Matiere . '</p>';
-                                        }
-                                        ?>
+                                        </div>
                                     </div>
-                                    <!--End Input Matiere-->
+                                    <!--End Formation Input-->
 
-                                    <!--Input Annee-->
-                                        <div></div>
-                                    <!--End Input Annee-->
-                                
-                                
+                                    <!--Matiere Input-->
+                                    <div><input id='matiereInput' name="matiere" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='Matière'>
+                                        <div id='sousMatiereInput' class='sousDiv' style='overflow:auto ;display:none'>
+                                            <?php
+                                            sort($packInfo[2]);
+                                            foreach ($packInfo[2] as $matiere) {
+                                                echo '<p  class="sousDivElement"  >' . $matiere . '</p>';
+                                            }
+                                            ?>
+
+                                        </div>
+                                    </div>
+                                    <!--End Matiere Input-->
+
+                                    <!-- Ecole Input -->
+                                    <div><input id='ecoleInput' name="ecole" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='Ecole'>
+                                        <div id='sousMatiereInput' class='sousDiv' style='overflow:auto ;display:none'>
+                                            <?php
+                                            sort($packInfo[1]);
+                                            foreach ($packInfo[1] as $ecole) {
+                                                echo '<p  class="sousDivElement"  >' . $ecole . '</p>';
+                                            }
+                                            ?>
+
+                                        </div>
+                                    </div>
+                                    <!-- End Ecole Input-->
+
+                                    <!--  Année Input -->
+                                    <input name="annee" id='anneeInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="number" placeholder="Année" min="1995" max="2020">
+                                    <!--End Année Input-->
+
+                                    <!--Notion Input-->
+                                    <input name="notion" id='notionInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="text" placeholder="Notions">
+
+                                    <!--End Notion Input-->
+
+
                                 </div>
 
-                                
+
                                 <div>
                                     <input id="toggle1" type="checkbox" class="input" name="aller_loin" checked>
-                                    <label for="toggle1" class="label">Aller plus loin !</label>
+                                    <label for="toggle1" class="label" id="allerPlusLoin">Aller plus loin !</label>
                                 </div>
                                 <div><button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit" id="bouttonDeRecherche" name='bouttonDeRecherche'> Rechercher</button></div>
 
@@ -270,7 +318,7 @@
                 </div>
         </section>
         <section style='position:relative;bottom:120px;'>
-            <div class='container section_epreuve'>
+            <div class='container section_epreuve' >
                 <!--//      Début de la premiere d'affichage des epreuves     //-->
                 <?php afficherLesEpreuves() ?>
                 <!--Fin-->
@@ -467,31 +515,118 @@
         <script src="public/js/custom.js"></script>
         <script src="public/js/testimoy_slide.js"></script>
         <script src="./public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
-       <!--         <script src='./public/js/research.js'></script> -->
+        <!--         <script src='./public/js/research.js'></script> -->
 
         <!-- Gestion de l'inscription des utilisateurs -->
         <script src='./public/js/signInCode.js'></script>
 
         <!---script for research-->
         <!--<script src='public/js/GestionRechercheDepreuve.js'></script>--->
-        
+
 
         <script>
-            var status = 0 ; 
-            var label = document.querySelector(".label") ; 
-            label.addEventListener("click" , function(){
-                if(status == 0){
-                    status = 1 ; 
-                   
+            var champsInput = document.querySelectorAll(".ressearch_input");
+            var elementPourAfficherLeChampFormation = document.querySelectorAll(".aTraiter");
+            var formationInput = document.querySelector("#formationInput");
+            var ressearchInput = document.querySelectorAll(".ressearch_input");
+            var allerPlusLoin = document.querySelector("#allerPlusLoin");
+            var matiereInput = document.querySelector("#matiereInput") ; 
+            var anneeInput = document.querySelector("#anneeInput") ; 
+            var notionInput = document.querySelector("#notionInput") ;
+            var ecoleInput = document.querySelector("#ecoleInput") ;
+            var statusDesChampsDuBas = false ;  
+            for (var k = 3; k < 6; k++) {
+                ressearchInput[k].style.display = "none";
+            }
+
+            allerPlusLoin.addEventListener("click", function() {
+                
+                if (statusDesChampsDuBas == false) {
+                   ecoleInput.style.display ="block" ;
+                   anneeInput.style.display ="block" ; 
+                   notionInput.style.display = "block" ; 
+                   statusDesChampsDuBas = true ;  
                 }
                 else{
-                    status = 0 ; 
+                    ecoleInput.style.display ="block" ;
+                   anneeInput.style.display ="none" ; 
+                   notionInput.style.display = "none" ; 
+                   statusDesChampsDuBas = false ;  
+                }
+            })
+
+            // Code pour la disparition et apparition du champ formation
+            for (var l = 0; l < elementPourAfficherLeChampFormation.length; l++) {
+                console.log(elementPourAfficherLeChampFormation[l]);
+                var regex = /Licence/;
+                if (regex.test(elementPourAfficherLeChampFormation[l].textContent) == true) {
+                    elementPourAfficherLeChampFormation[l].addEventListener("click", function() {
+                        formationInput.style.display = "block";
+                    })
+                } else {
+                    elementPourAfficherLeChampFormation[l].addEventListener("click", function() {
+                        formationInput.style.display = "none";
+                    })
                 }
 
-                if(status == 0){
-                    alert(" Je ne suis pas activé") ; 
-                }else if (status == 1){
-                    
+            }
+
+
+
+
+            // Gestion de l'affichage et de la disparrition des sous div
+
+
+
+
+
+            for (var i = 0; i < 4; i++) {
+
+                champsInput[i].addEventListener("click", function() {
+                    var parent = this.parentNode;
+                    sousDiv = parent.querySelector(".sousDiv");
+
+
+
+                    if (sousDiv.style.display == "none") {
+                        sousDiv.style.display = "block";
+                        sousDivElement = sousDiv.querySelectorAll(".sousDivElement");
+                        for (var j = 0; j < sousDivElement.length; j++) {
+                            sousDivElement[j].addEventListener("click", function() {
+                                var parent1 = this.parentNode;
+                                var ancetre = parent1.parentNode;
+                                var leChampInput = ancetre.children[0];
+                                leChampInput.value = this.textContent;
+                                parent1.style.display = "none";
+
+
+
+                            })
+                        }
+
+
+                    } else if (sousDiv.style.display == "block") {
+                        sousDiv.style.display = "none";
+                    }
+                })
+            }
+
+
+
+            var status = 0;
+            var label = document.querySelector(".label");
+            label.addEventListener("click", function() {
+                if (status == 0) {
+                    status = 1;
+
+                } else {
+                    status = 0;
+                }
+
+                if (status == 0) {
+                    ;
+                } else if (status == 1) {
+
                 }
             })
         </script>
