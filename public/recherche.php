@@ -90,7 +90,7 @@ if (!empty($_POST)) {
       background-position: center;
       background-size: cover;
       width: 200px;
-      
+
       background-color: #fff;
     }
   </style>
@@ -100,91 +100,36 @@ if (!empty($_POST)) {
   <!-- Swiper -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/anglais.png" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
+      <?php
+      $i = 0;
 
+      while ($i < $tailleResultat) {
+        
+        $epreuveNiveau = " " ; 
+        if($reponse[$i]['serie'] == NULL){
+          $epreuveNiveau = $reponse[$i]['classe'] ; 
+        }
+        else{
+          $epreuveNiveau = $reponse[$i]['classe']."/".$reponse[$i]['serie'] ; 
+        }
+        echo " 
+          <div class='swiper-slide' >
+          <div class='imgBx'>
+            <img src='img/logoEpreuves/francais.jpg' style='width:100%;'>
+          </div>
+          <div class='details caption epreuve_info'>
+            <p class='matiere'>".$reponse[$i]['matiere']."</p>
+            <p class='classe'>".$epreuveNiveau."</p><br><br>
+            <p style='text-align:center'> <a href='function/compilation/downloadpage.php?nom_epreuve =' class='click_lien'>Télécharger</a> </p>
+          </div>
+        </div>
+              ";
 
-      <div class="swiper-slide" >
-        <div class="imgBx">
-          <img src="img/logoEpreuves/francais.jpg" style="width:100%;">
-        </div>
-        <div class="details caption epreuve_info">
-          <p class='matiere'>La matiere</p>
-          <p class='classe'>Le niveau</p><br><br>
-          <p style='text-align:center'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
-        </div>
-      </div>
+        $i ++ ;       
+      }
 
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/histGeo.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
+      ?>
 
-     
-
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/pdfico4.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/francais.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/francais.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/francais.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/francais.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="imgBx">
-          <img src="img/logoEpreuves/francais.jpg" style="width:100%;">
-        </div>
-        <div class="details">
-          <h3>John Doe</h3><br><span>Web Designer</span></h3>
-        </div>
-      </div>
 
 
 
