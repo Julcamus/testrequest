@@ -28,10 +28,10 @@ require_once('functions/epreuvesFunctions.php') ?>
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="public/css/magnific-popup.css">
     <!-- swiper CSS -->
-    
+
     <!-- style CSS -->
     <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/home.css">
+    <link rel="stylesheet" href="public/css/index.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
@@ -40,7 +40,8 @@ require_once('functions/epreuvesFunctions.php') ?>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!--Link for reasearch SingIn traitement in Js-->
     <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="public/css/swiper.min.css">
+    <link rel="stylesheet" href="public/css/swiper.min.css">
+
 
 </head>
 <style>
@@ -115,19 +116,18 @@ require_once('functions/epreuvesFunctions.php') ?>
 
 
     .swiper-container {
-      width: 100%;
-      padding-top: 50px;
-      padding-bottom: 50px;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
+
     .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 200px;
-      height: 200px;
-      background-color:#fff;
+        background-position: center;
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
     }
-
-
 </style>
 
 <body>
@@ -292,6 +292,9 @@ require_once('functions/epreuvesFunctions.php') ?>
                     <div class="div" style="top:30px;">
                         <h1 id="h1Mouvant">Et <span> Téléchargez <br> </span>Les épreuves <br> De votre choix <span>.</span></h1>
                     </div>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -300,11 +303,109 @@ require_once('functions/epreuvesFunctions.php') ?>
         </section>
 
         <!--Gestion de la recherche-->
+        <div class="container" style="border:1px solid silver ; width:80% ; position:relative;top:15px;">
+            <div><span style="float:right;size:20px;background-color:#EF470D;color:white;padding:6px;position:relative;left:16px">&times;</span></div>
+            <h3 style="font-family: 'Snell Roundhand';position:relative;margin-top:20px;">Résultat de la recherche : </h4>
+            <div>
+                <!-- Swiper -->
+                <div class="swiper-container">
+                            <div class="swiper-wrapper">
 
+                            <div class='swiper-slide'>
+                                    <div class='thumbnail' style='border:1px solid silver'>
+                                        <div><img style='height:110px;width:100%' src='public/img/logoEpreuves/pdfico22.png'></div>
+
+                                        <div class='caption  ' style=''>
+                                            <p class='' style='font-weight:bold'>Francais</p>
+                                            <p class='' style='font-weight:bold'>Terminale</p>
+                                            <p class='' style='font-weight:bold;letter-spacing:1px'>CEG Pylones</p>
+                                            <p style='text-align:center;margin-top:25px;'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
+
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class='swiper-slide'>
+                                    <div class='thumbnail' style='border:1px solid silver'>
+                                        <div><img style='height:110px;width:100%' src='public/img/logoEpreuves/pdfico22.png'></div>
+
+                                        <div class='caption  ' style=''>
+                                            <p class='' style='font-weight:bold'>Francais</p>
+                                            <p class='' style='font-weight:bold'>Terminale</p>
+                                            <p class='' style='font-weight:bold;letter-spacing:1px'>CEG Pylones</p>
+                                            <p style='text-align:center;margin-top:25px;'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
+
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class='swiper-slide'>
+                                    <div class='thumbnail' style='border:1px solid silver'>
+                                        <div><img style='height:110px;width:100%' src='public/img/logoEpreuves/pdfico22.png'></div>
+
+                                        <div class='caption  ' style=''>
+                                            <p class='' style='font-weight:bold'>Francais</p>
+                                            <p class='' style='font-weight:bold'>Terminale</p>
+                                            <p class='' style='font-weight:bold;letter-spacing:1px'>CEG Pylones</p>
+                                            <p style='text-align:center;margin-top:25px;'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
+
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class='swiper-slide'>
+                                    <div class='thumbnail' style='border:1px solid silver'>
+                                        <div><img style='height:110px;width:100%' src='public/img/logoEpreuves/pdfico22.png'></div>
+
+                                        <div class='caption  ' style=''>
+                                            <p class='' style='font-weight:bold'>Francais</p>
+                                            <p class='' style='font-weight:bold'>Terminale</p>
+                                            <p class='' style='font-weight:bold;letter-spacing:1px'>CEG Pylones</p>
+                                            <p style='text-align:center;margin-top:25px;'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
+
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                               
+
+                                
+
+                                
+
+                                <div class='swiper-slide'>
+                                    <div class='thumbnail' style='border:1px solid silver'>
+                                        <div><img style='height:110px;width:100%' src='public/img/logoEpreuves/pdfico22.png'></div>
+
+                                        <div class='caption  ' style=''>
+                                            <p class='' style='font-weight:bold'>Francais</p>
+                                            <p class='' style='font-weight:bold'>Terminale</p>
+                                            <p class='' style='font-weight:bold;letter-spacing:1px'>CEG Pylones</p>
+                                            <p style='text-align:center;margin-top:25px;'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
+
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination" style="position:relative;margin-top:100px;"></div>
+                        </div>
+
+
+            </div>
+        </div>
         <!--Fin-->
 
 
-        <!--Fin de la gestion de la recherche-->
+
         <!--::review_part start::-->
         <section id='voir_epreuve' class="special_cource padding_top" style='position:relative; bottom:85px;'>
             <div class="container">
@@ -318,7 +419,7 @@ require_once('functions/epreuvesFunctions.php') ?>
                 </div>
         </section>
         <section style='position:relative;bottom:120px;'>
-            <div class='container section_epreuve' >
+            <div class='container section_epreuve'>
                 <!--//      Début de la premiere d'affichage des epreuves     //-->
                 <?php afficherLesEpreuves() ?>
                 <!--Fin-->
@@ -519,6 +620,9 @@ require_once('functions/epreuvesFunctions.php') ?>
 
         <!-- Gestion de l'inscription des utilisateurs -->
         <script src='./public/js/signInCode.js'></script>
+        <script src="public/js/swiper.min.js"></script>
+
+
 
         <!---script for research-->
         <!--<script src='public/js/GestionRechercheDepreuve.js'></script>--->
@@ -530,28 +634,27 @@ require_once('functions/epreuvesFunctions.php') ?>
             var formationInput = document.querySelector("#formationInput");
             var ressearchInput = document.querySelectorAll(".ressearch_input");
             var allerPlusLoin = document.querySelector("#allerPlusLoin");
-            var matiereInput = document.querySelector("#matiereInput") ; 
-            var anneeInput = document.querySelector("#anneeInput") ; 
-            var notionInput = document.querySelector("#notionInput") ;
-            var ecoleInput = document.querySelector("#ecoleInput") ;
-            var statusDesChampsDuBas = false ;  
+            var matiereInput = document.querySelector("#matiereInput");
+            var anneeInput = document.querySelector("#anneeInput");
+            var notionInput = document.querySelector("#notionInput");
+            var ecoleInput = document.querySelector("#ecoleInput");
+            var statusDesChampsDuBas = false;
             for (var k = 3; k < 6; k++) {
                 ressearchInput[k].style.display = "none";
             }
 
             allerPlusLoin.addEventListener("click", function() {
-                
+
                 if (statusDesChampsDuBas == false) {
-                   ecoleInput.style.display ="block" ;
-                   anneeInput.style.display ="block" ; 
-                   notionInput.style.display = "block" ; 
-                   statusDesChampsDuBas = true ;  
-                }
-                else{
-                    ecoleInput.style.display ="block" ;
-                   anneeInput.style.display ="none" ; 
-                   notionInput.style.display = "none" ; 
-                   statusDesChampsDuBas = false ;  
+                    ecoleInput.style.display = "block";
+                    anneeInput.style.display = "block";
+                    notionInput.style.display = "block";
+                    statusDesChampsDuBas = true;
+                } else {
+                    ecoleInput.style.display = "block";
+                    anneeInput.style.display = "none";
+                    notionInput.style.display = "none";
+                    statusDesChampsDuBas = false;
                 }
             })
 
@@ -629,6 +732,27 @@ require_once('functions/epreuvesFunctions.php') ?>
 
                 }
             })
+
+
+
+            // Swiper code 
+
+            var swiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
         </script>
 
 </body>

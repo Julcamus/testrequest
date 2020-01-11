@@ -68,7 +68,7 @@
     color:#F0560B ; 
     float : right ; 
     border : 1px solid silver ;
-    padding : 3px ; 
+    
     border-radius : 100%;
     position:relative; 
     background-color:white;
@@ -76,23 +76,29 @@
 }
 
 .ligne_une_epreuve{
-    position : relative ; 
-    margin-top : 20px;
+    position : relative ;
+    margin-bottom:70px; 
+    
    
     
     
 }
 .click_lien{
-    color : silver ; 
+    color : black ; 
     text-decoration : none ;
     position:relative;
-    bottom: 2px; 
+    bottom:10px;
     letter-spacing: 2px;
-     
+    border:1px solid black ;
+    padding:5px ; 
+    border-radius:5px; 
+    
 }
 
 .click_lien:hover {
-    color:white ; 
+    color:white ;
+    background-color:#EF470D ; 
+    border-color:#EF470D ;  
 }
 
 .une_epreuve{

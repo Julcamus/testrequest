@@ -57,18 +57,18 @@ function afficherLesEpreuves()
 
 
 
-	$requette = $connection->query("SELECT tocken , matiere ,  classe , serie ,  icone FROM bank_epreuve LIMIT 24");
+	$requette = $connection->query("SELECT tocken , matiere ,  classe , serie , ecole ,   icone FROM bank_epreuve LIMIT 24");
 	$reponse = $requette->fetchAll();
 
-	$i = 6;
+	$i = 4;
 
 	while ($i <= 24) {
-		$numeroLigne = $i / 6;
+		$numeroLigne = $i / 4;
 		echo "<div class= 'row ligne_une_epreuve ' id='ligne" . $numeroLigne . "'  >";
 
-		for ($j = 0; $j <= 5; $j++) {
+		for ($j = 0; $j <= 3; $j++) {
 			$niveau = " ";
-			$element = $j + ($i - 6);
+			$element = $j + ($i - 4);
 			$tocken_epreuve  = $reponse[$element]['tocken'];
 			if ($reponse[$element]['serie'] != "") {
 				$niveau = $reponse[$element]['classe'] . '/' . $reponse[$element]['serie'];
@@ -78,15 +78,19 @@ function afficherLesEpreuves()
 
 			$matiere = $reponse[$element]['matiere'];
 			$icone = $reponse[$element]['icone'];
+			$ecole = $reponse[$element]['ecole'] ; 
+	
 			echo "
 			
-		<div class='col-lg-2  une_epreuve ' style='margin-bottom:20px;'>
-		<div class='thumbnail'>
-			<img src='public/img/logoEpreuves/" . $icone . "'  >
-			<div class='caption epreuve_info ' style='margin-top:3px'>
-			<p class='matiere' >" . $matiere . "</p>
-			 <p class='classe'>" . $niveau . "</p><br><br>
-            <p style='text-align:center'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
+		<div class='col-lg-3  une_epreuve ' >
+		<div class='thumbnail'  style='border:1px solid silver'>
+			<div  ><img style='height:110px;width:100%' src='public/img/logoEpreuves/" . $icone . "'  ></div>
+			
+			<div class='caption  ' style=''>
+			<p class='' style='font-weight:bold' >" . $matiere . "</p>
+			 <p class='' style='font-weight:bold' >" . $niveau . "</p>
+			 <p class='' style='font-weight:bold;letter-spacing:1px' >" . $ecole . "</p>
+            <p style='text-align:center;margin-top:25px;'> <a href='function/compilation/downloadpage.php?nom_epreuve =" . $tocken_epreuve . "' class='click_lien'>Télécharger</a> </p>
            
 			</div>
 		  </a>
@@ -95,7 +99,7 @@ function afficherLesEpreuves()
 		}
 
 		echo "</div>";
-		$i += 6;
+		$i += 4;
 	}
 }
 
