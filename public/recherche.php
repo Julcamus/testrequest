@@ -2,7 +2,10 @@
 // Page pour faire les recherches d'epreuves de l'utilisateur
 if (!empty($_POST)) {
   extract($_POST);
-  //var_dump($_POST);
+
+  var_dump($_POST);
+  $reponse = NULL;
+  $reponsePlusPrecis = NULL;
   $classe = "";
   $serie = "";
   $resultatFinal = array();
@@ -18,9 +21,9 @@ if (!empty($_POST)) {
 
 
   require("../requettes/connectionFileToDataBase.php");
-  // Requette pour niveaux secondaire , matiere
 
   if ($niveaux != Null and $matiere != Null and $formation == "" and $annee == "" and $ecole == "") {
+    // Requette pour niveaux secondaire , matiere
     $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ? AND classe = ? AND serie = ? ");
     $requette->execute([$matiere, $classe, $serie]);
     $reponse = $requette->fetchAll();
@@ -34,24 +37,60 @@ if (!empty($_POST)) {
     $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ? AND classe = ? AND serie = ? AND annee = ? ");
     $requette->execute([$matiere, $classe, $serie, $annee]);
     $reponse = $requette->fetchAll();
+  } elseif ($niveaux != Null and $matiere != Null and $annee != NULL and $formation == "" and $ecole != NULL) {
+    // Requette pour niveaux secondaire , matiere , annee , ecole
+    $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ? AND classe = ? AND serie = ? AND annee = ? AND ecole = ?");
+    $requette->execute([$matiere, $classe, $serie, $annee, $ecole]);
+    $reponse = $requette->fetchAll();
   } elseif ($niveaux != Null and $matiere != Null and $formation != NULL and $annee == "" and $ecole == "") {
-    // Requette pour niveaux universitaire , matiere ,formation , classe , serie
+    // Requette pour niveaux universitaire , matiere ,formation 
     $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ? AND formation = ? AND classe = ? AND serie = ? ");
     $requette->execute([$matiere, $formation,  $classe, $serie]);
     $reponse = $requette->fetchAll();
   } elseif ($niveaux != Null and $matiere != Null and $ecole != NULL and $formation != NULL and $annee == "") {
-    // Requette pour niveaux universitaire , matiere ,formation , classe , serie , ecole
+    // Requette pour niveaux universitaire , matiere ,formation , ecole
     $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ?  AND formation = ? AND classe = ? AND serie = ? AND ecole = ? ");
     $requette->execute([$matiere, $formation,  $classe, $serie, $ecole]);
     $reponse = $requette->fetchAll();
   } elseif ($niveaux != Null and $matiere != Null and $annee != NULL and $formation != NULL and $ecole == "") {
-    // Requette pour  niveaux universitaire , matiere ,formation , classe , serie, annee
+    // Requette pour  niveaux universitaire , matiere ,formation , annee
     $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ? AND formation = ? AND classe = ? AND serie = ? AND annee = ? ");
     $requette->execute([$matiere, $formation, $classe, $serie, $annee]);
     $reponse = $requette->fetchAll();
+  } elseif ($niveaux != Null and $matiere != Null and $annee != NULL and $formation != NULL and $ecole != NULL) {
+    // Requette pour  niveaux universitaire , matiere ,formation , annee
+    $requette  = $connection->prepare("SELECT * FROM bank_epreuve WHERE matiere = ? AND formation = ? AND classe = ? AND serie = ? AND annee = ? AND ecole = ? ");
+    $requette->execute([$matiere, $formation, $classe, $serie, $annee, $ecole]);
+    $reponse = $requette->fetchAll();
   }
+ 
+ // Gestion de la précision de la notion par l'utilisateur  
+    if ($reponse != NULL) {
+      $pas = 0 ; 
+      foreach ($reponse as $element => $value) {
+        
+        $notionsMots = explode(" ", $notion);
+        $nombreNotionsMots = count($notionsMots);
+         
+        $niveauxDeCompatibilite = 0;
+        for ($i = 0; $i < $nombreNotionsMots ; $i++) {
+          if (preg_match('/'.$notionsMots[$i].'/i', $value['description']) == 1) {
+            $niveauxDeCompatibilite ++ ; 
+          }
+        }
+        if($niveauxDeCompatibilite >= 1)
+        {
+          $reponsePlusPrecis = $value ; 
+          unset($reponse[$pas]) ; 
+        }
+      }
+      $pas ++ ; 
+    }
 
-  $tailleResultat = count($reponse);
+    echo 'Le resultat géné est : ' ; 
+    var_dump($reponse) ; 
+    echo 'Le résultat précis donne : ' ; 
+    var_dump($reponsePlusPrecis) ; 
 }
 
 ?>
@@ -104,13 +143,12 @@ if (!empty($_POST)) {
       $i = 0;
 
       while ($i < $tailleResultat) {
-        
-        $epreuveNiveau = " " ; 
-        if($reponse[$i]['serie'] == NULL){
-          $epreuveNiveau = $reponse[$i]['classe'] ; 
-        }
-        else{
-          $epreuveNiveau = $reponse[$i]['classe']."/".$reponse[$i]['serie'] ; 
+
+        $epreuveNiveau = " ";
+        if ($reponse[$i]['serie'] == NULL) {
+          $epreuveNiveau = $reponse[$i]['classe'];
+        } else {
+          $epreuveNiveau = $reponse[$i]['classe'] . "/" . $reponse[$i]['serie'];
         }
         echo " 
           <div class='swiper-slide' >
@@ -118,14 +156,14 @@ if (!empty($_POST)) {
             <img src='img/logoEpreuves/francais.jpg' style='width:100%;'>
           </div>
           <div class='details caption epreuve_info'>
-            <p class='matiere'>".$reponse[$i]['matiere']."</p>
-            <p class='classe'>".$epreuveNiveau."</p><br><br>
+            <p class='matiere'>" . $reponse[$i]['matiere'] . "</p>
+            <p class='classe'>" . $epreuveNiveau . "</p><br><br>
             <p style='text-align:center'> <a href='function/compilation/downloadpage.php?nom_epreuve =' class='click_lien'>Télécharger</a> </p>
           </div>
         </div>
               ";
 
-        $i ++ ;       
+        $i++;
       }
 
       ?>
