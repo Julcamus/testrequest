@@ -1,7 +1,3 @@
-<?php  // mail('thomasrenaud533@gmail.com','test','Je suis le message de test')  
-?>
-<?php // header('content-type: text/html; charset=utf-8'); 
-?>
 <?php
 require_once('functions/epreuvesFunctions.php') ?>
 
@@ -173,10 +169,10 @@ require_once('functions/epreuvesFunctions.php') ?>
                         <div class="banner_text_iner">
 
                             <h1>TestRequest</h1>
-                            <p>Nous sommes une plate-forme qui vous accompagne dans vos études en mettant à votre disposition
-                                des épreuves et des documents afin que vous ne manquiez de rien dans vos parcours académiques.</p>
+                            <p>Nous sommes une plate-forme qui vous accompagne dans vos Ã©tudes en mettant Ã  votre disposition
+                                des Ã©preuves et des documents afin que vous ne manquiez de rien dans vos parcours acadÃ©miques.</p>
                             <a href="#" class="btn_1">S'inscrire </a>
-                            <a href="#voir_epreuve" class="btn_2">Voir les épreuves </a>
+                            <a href="#voir_epreuve" class="btn_2">Voir les Ã©preuves </a>
                         </div>
                     </div>
                 </div>
@@ -229,7 +225,7 @@ require_once('functions/epreuvesFunctions.php') ?>
                                     <!--End Formation Input-->
 
                                     <!--Matiere Input-->
-                                    <div><input id='matiereInput' name="matiere" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='Matière'>
+                                    <div><input id='matiereInput' name="matiere" Autocomplete="off" type="text" class='ressearch_input inputFormulaire' placeholder='MatiÃ¨re'>
                                         <div id='sousMatiereInput' class='sousDiv' style='overflow:auto ;display:none'>
                                             <?php
                                             sort($packInfo[2]);
@@ -256,9 +252,9 @@ require_once('functions/epreuvesFunctions.php') ?>
                                     </div>
                                     <!-- End Ecole Input-->
 
-                                    <!--  Année Input -->
-                                    <input name="annee" id='anneeInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="number" placeholder="Année" min="1995" max="2020">
-                                    <!--End Année Input-->
+                                    <!--  AnnÃ©e Input -->
+                                    <input name="annee" id='anneeInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="number" placeholder="AnnÃ©e" min="1995" max="2020">
+                                    <!--End AnnÃ©e Input-->
 
                                     <!--Notion Input-->
                                     <input name="notion" id='notionInput' Autocomplete="off" class='ressearch_input inputFormulaire ' type="text" placeholder="Notions">
@@ -290,7 +286,7 @@ require_once('functions/epreuvesFunctions.php') ?>
                         <h1 id="h1Mouvant">Recherchez</h1>
                     </div><br>
                     <div class="div" style="top:30px;">
-                        <h1 id="h1Mouvant">Et <span> Téléchargez <br> </span>Les épreuves <br> De votre choix <span>.</span></h1>
+                        <h1 id="h1Mouvant">Et <span> TÃ©lÃ©chargez <br> </span>Les Ã©preuves <br> De votre choix <span>.</span></h1>
                     </div>
                     <div>
 
@@ -309,14 +305,14 @@ require_once('functions/epreuvesFunctions.php') ?>
                     <div class="col-xl-5">
                         <div class="section_tittle text-center">
 
-                            <h2>Les épreuves à la une</h2>
+                            <h2>Les Ã©preuves Ã  la une</h2>
                         </div>
                     </div>
                 </div>
         </section>
         <section style='position:relative;bottom:120px;'>
             <div class='container section_epreuve'>
-                <!--//      Début de la premiere d'affichage des epreuves     //-->
+                <!--//      DÃ©but de la premiere d'affichage des epreuves     //-->
                 <?php afficherLesEpreuves() ?>
                 <!--Fin-->
             </div>
@@ -333,7 +329,7 @@ require_once('functions/epreuvesFunctions.php') ?>
                     <div class="col-lg-3 col-sm-6">
                         <div class="single_member_counter">
                             <span class="counter">9024</span>
-                            <h4>Nombre de téléchargement</h4>
+                            <h4>Nombre de tÃ©lÃ©chargement</h4>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
@@ -345,13 +341,13 @@ require_once('functions/epreuvesFunctions.php') ?>
                     <div class="col-lg-3 col-sm-6">
                         <div class="single_member_counter">
                             <span class="counter">1005</span>
-                            <h4>Nombre d'épreuves disponible</h4>
+                            <h4>Nombre d'Ã©preuves disponible</h4>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="single_member_counter">
                             <span class="counter">720</span>
-                            <h4>Nombre d'élève inscrit</h4>
+                            <h4>Nombre d'Ã©lÃ¨ve inscrit</h4>
                         </div>
                     </div>
                 </div>
@@ -370,7 +366,7 @@ require_once('functions/epreuvesFunctions.php') ?>
                         </div>
                     </div>
                 </div>
-                <!--Zone pour les témoignages-->
+                <!--Zone pour les tÃ©moignages-->
                 <div class="row">
                     <div class="col-md-12">
                         <div id="testimonial-slider" class="owl-carousel">
@@ -381,10 +377,10 @@ require_once('functions/epreuvesFunctions.php') ?>
                                 </div>
                                 <div class="testimonial-profile">
 
-                                    <span class="post">Etudiant à la FSA</span>
+                                    <span class="post">Etudiant Ã  la FSA</span>
                                 </div>
                                 <p class="description">
-                                    Coucou la famille , Test request m'a sauvé la vie .Je dispose maintenant grâce à cette plate-forme de toutes les ressources dont j'ai besoins dans mon apprentissage.Je recommande vraiment.Merci
+                                    Coucou la famille , Test request m'a sauvÃ© la vie .Je dispose maintenant grÃ¢ce Ã  cette plate-forme de toutes les ressources dont j'ai besoins dans mon apprentissage.Je recommande vraiment.Merci
                                 </p>
                             </div>
                             <div class="testimonial">
@@ -394,28 +390,28 @@ require_once('functions/epreuvesFunctions.php') ?>
                                 </div>
                                 <div class="testimonial-profile">
 
-                                    <span class="">Elève en Terminale</span>
+                                    <span class="">ElÃ¨ve en Terminale</span>
                                 </div>
                                 <p class="description">
-                                    Je suis élève en classe de Terminale et utilisateur de la plateforme TestRequest grâce à laquelle j'ai accès à de nombreuses épreuves .Je remercie et encourage les initiateurs de la-dite plateforme.Merci
+                                    Je suis Ã©lÃ¨ve en classe de Terminale et utilisateur de la plateforme TestRequest grÃ¢ce Ã  laquelle j'ai accÃ¨s Ã  de nombreuses Ã©preuves .Je remercie et encourage les initiateurs de la-dite plateforme.Merci
                                 </p>
                             </div>
                             <div class="testimonial">
                                 <div class="pic">
                                     <img src="public/img/test_request_icone/etudiant_1.jpg">
-                                    <h3 class="title">Bénédicte</h3>
+                                    <h3 class="title">BÃ©nÃ©dicte</h3>
                                 </div>
                                 <div class="testimonial-profile">
 
                                     <span class="post">Etudiante en Administration des Finances</span>
                                 </div>
                                 <p class="description">
-                                    Salut , j'ai découvert tout récemment Test request et dès lors je l'ai adopté. Elle me facilite vraiment la vie.De ma chambre j'ai accès à une banque imprèssionnante de ressources .Je ne peux que remercié les initiateurs.
+                                    Salut , j'ai dÃ©couvert tout rÃ©cemment Test request et dÃ¨s lors je l'ai adoptÃ©. Elle me facilite vraiment la vie.De ma chambre j'ai accÃ¨s Ã  une banque imprÃ¨ssionnante de ressources .Je ne peux que remerciÃ© les initiateurs.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <!--////           Fin du témoignage       //////-->
+                    <!--////           Fin du tÃ©moignage       //////-->
                 </div>
         </section>
 
@@ -428,14 +424,14 @@ require_once('functions/epreuvesFunctions.php') ?>
                     <div class="col-sm-6 col-md-4 col-xl-3">
                         <div class="single-footer-widget footer_1">
                             <a class="navbar-brand" href="index.html"> <img src="public/img/favicon.png" alt="logo" id='footerLogo'><span id='footerSiteName'>TestRequeste </span> </a>
-                            <p>Petit text à mettre ou une note ,je ne sais pas encore </p>
+                            <p>Petit text Ã  mettre ou une note ,je ne sais pas encore </p>
 
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4 col-xl-4">
                         <div class="single-footer-widget footer_2">
                             <h4>Newsletter</h4>
-                            <p>S'inscrire à notre Newsletter
+                            <p>S'inscrire Ã  notre Newsletter
                             </p>
                             <form action="#">
                                 <div class="form-group">
@@ -460,7 +456,7 @@ require_once('functions/epreuvesFunctions.php') ?>
                             <h4>Nous contactez</h4>
                             <div class="contact_info">
                                 <p><span> Addresse :</span> A remplir </p>
-                                <p><span> Numéro :</span> +229 --------</p>
+                                <p><span> NumÃ©ro :</span> +229 --------</p>
                                 <p><span> Email : </span>a_remplir.com </p>
                             </div>
                         </div>
@@ -631,7 +627,7 @@ require_once('functions/epreuvesFunctions.php') ?>
 
 
 
-            // Swiper code 
+            // Swiper code
 
             var swiper = new Swiper('.swiper-container', {
                 effect: 'coverflow',

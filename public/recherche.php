@@ -3,7 +3,7 @@
 if (!empty($_POST)) {
   extract($_POST);
 
-  var_dump($_POST);
+  
   $reponse = NULL;
   $reponsePlusPrecis = NULL;
   $classe = "";
@@ -63,34 +63,28 @@ if (!empty($_POST)) {
     $requette->execute([$matiere, $formation, $classe, $serie, $annee, $ecole]);
     $reponse = $requette->fetchAll();
   }
- 
- // Gestion de la précision de la notion par l'utilisateur  
-    if ($reponse != NULL) {
-      $pas = 0 ; 
-      foreach ($reponse as $element => $value) {
-        
-        $notionsMots = explode(" ", $notion);
-        $nombreNotionsMots = count($notionsMots);
-         
-        $niveauxDeCompatibilite = 0;
-        for ($i = 0; $i < $nombreNotionsMots ; $i++) {
-          if (preg_match('/'.$notionsMots[$i].'/i', $value['description']) == 1) {
-            $niveauxDeCompatibilite ++ ; 
-          }
-        }
-        if($niveauxDeCompatibilite >= 1)
-        {
-          $reponsePlusPrecis = $value ; 
-          unset($reponse[$pas]) ; 
+
+  // Gestion de la précision de la notion par l'utilisateur  
+  if ($reponse != NULL) {
+    $pas = 0;
+    foreach ($reponse as $element => $value) {
+
+      $notionsMots = explode(" ", $notion);
+      $nombreNotionsMots = count($notionsMots);
+
+      $niveauxDeCompatibilite = 0;
+      for ($i = 0; $i < $nombreNotionsMots; $i++) {
+        if (preg_match('/' . $notionsMots[$i] . '/i', $value['description']) == 1) {
+          $niveauxDeCompatibilite++;
         }
       }
-      $pas ++ ; 
+      if ($niveauxDeCompatibilite >= 1) {
+        $reponsePlusPrecis = $value;
+        unset($reponse[$pas]);
+      }
     }
-
-    echo 'Le resultat géné est : ' ; 
-    var_dump($reponse) ; 
-    echo 'Le résultat précis donne : ' ; 
-    var_dump($reponsePlusPrecis) ; 
+    $pas++;
+  }
 }
 
 ?>
@@ -140,8 +134,8 @@ if (!empty($_POST)) {
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <?php
-      $i = 0;
 
+      /* $i = 0;
       while ($i < $tailleResultat) {
 
         $epreuveNiveau = " ";
@@ -165,12 +159,31 @@ if (!empty($_POST)) {
 
         $i++;
       }
+        */   
+
+       foreach($reponse as $element=>$value)
+        {
+          if ($value['serie'] == NULL) {
+            $epreuveNiveau = $reponse[$i]['classe'];
+          } else {
+            $epreuveNiveau = $value['classe'] . "/" . $value['serie'];
+          }
+          echo " 
+          <div class='swiper-slide' >
+          <div class='imgBx'>
+            <img src='img/logoEpreuves/francais.jpg' style='width:100%;'>
+          </div>
+          <div class='details caption epreuve_info'>
+            <p class='matiere'>" . $value['matiere'] . "</p>
+            <p class='classe'>" . $epreuveNiveau . "</p><br><br>
+            <p style='text-align:center'> <a href='function/compilation/downloadpage.php?nom_epreuve =' class='click_lien'>Télécharger</a> </p>
+          </div>
+        </div>
+              ";
+        } 
+
 
       ?>
-
-
-
-
 
     </div>
     <!-- Add Pagination -->

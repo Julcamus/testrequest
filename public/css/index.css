@@ -435,3 +435,18 @@ html, body {
       color:red;
     }
   }
+
+/* Swipper */
+  .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 200px;
+
+    background-color: #fff;
+}

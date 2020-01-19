@@ -162,13 +162,7 @@ if (!empty($_POST)) {
 		</div>
             </div>
 
-
-
-
-
-
-
-
+            
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
